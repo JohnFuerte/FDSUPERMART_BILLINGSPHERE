@@ -103,8 +103,10 @@ class _ItemHomeState extends State<ItemHome> {
 
   Future<void> fetchInitialItems() async {
     try {
-      final List<Item> initialItems =
-          await itemsService.fetchItemsWithPagination(1, limit: 1500);
+      // final List<Item> initialItems =
+      //     await itemsService.fetchItemsWithPagination(1, limit: 1500);
+
+      final List<Item> initialItems = await itemsService.fetchITEMS();
       setState(() {
         fectedItems = initialItems;
         fectedItems2 = initialItems;
@@ -119,6 +121,8 @@ class _ItemHomeState extends State<ItemHome> {
       print('Failed to fetch items: $error');
     }
   }
+
+  
 
   void _scrollListener() {
     if (_scrollController.position.pixels ==
